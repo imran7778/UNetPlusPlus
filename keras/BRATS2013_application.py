@@ -19,7 +19,7 @@ import warnings
 warnings.filterwarnings('ignore')
 import os
 import tensorflow.keras
-print("Keras = {}".format(keras.__version__))
+print("tensorflow.keras = {}".format(tensorflow.keras.__version__))
 import tensorflow as tf
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # or any {'0', '1', '2'}
 from tqdm import tqdm
