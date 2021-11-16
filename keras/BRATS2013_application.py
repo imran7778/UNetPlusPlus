@@ -35,13 +35,13 @@ import shutil
 from sklearn import metrics
 import random
 from random import shuffle
-from keras.callbacks import LambdaCallback, TensorBoard
+from tensorflow.keras.callbacks import LambdaCallback, TensorBoard
 from glob import glob
 from skimage.transform import resize
 from optparse import OptionParser
 from segmentation_models import Nestnet, Unet, Xnet
 from helper_functions import *
-from keras.utils import plot_model
+from tensorflow.keras.utils import plot_model
 
 sys.setrecursionlimit(40000)
 
@@ -237,12 +237,12 @@ tbCallBack = TensorBoard(log_dir=os.path.join(logs_path, config.exp_name),
                         )
 tbCallBack.set_model(model)    
 
-early_stopping = keras.callbacks.EarlyStopping(monitor='val_loss', 
+early_stopping = tensorflow.keras.callbacks.EarlyStopping(monitor='val_loss', 
                                                patience=config.patience, 
                                                verbose=0,
                                                mode='min',
                                               )
-check_point = keras.callbacks.ModelCheckpoint(os.path.join(model_path, config.exp_name+".h5"),
+check_point = tensorflow.keras.callbacks.ModelCheckpoint(os.path.join(model_path, config.exp_name+".h5"),
                                               monitor='val_loss', 
                                               verbose=1, 
                                               save_best_only=True, 
